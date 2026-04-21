@@ -106,22 +106,80 @@ The project followed a structured and reproducible Machine Learning pipeline des
 
 ## Model Performance Comparison Table
 
-Model                 RMSER²      Score     MAE      Avg Error($)
-Linear Regression0    .75390     .66600    .5861    ~$58,610
-Ridge Regression      0.75400    .66590    .5862    ~$58,620
-Decision Tree         0.64980     .75170   .4721    ~$47,210
+![](https://github.com/suriya2318/ML-Model-Comparison-Feature-Engineering/blob/main/Model%20Performance%20Comparison%20Table.png)
 
-Best Model Selected: Decision Tree Regressor
+### Best Model Selected: Decision Tree Regressor
 • Highest R² Score of 0.7517 — explains 75.17% of house price variation on unseen test data.
+
 • Lowest RMSE of 0.6498 — average prediction error of approximately $64,980 per house.
+
 • Lowest MAE of 0.4721 — median prediction is off by only $47,210 on average.
+
 • Outperformed Linear Regression by +8.57% in R² Score and reduced RMSE by 0.1041 points.
+
 • Ridge and Linear Regression produced nearly identical results (R² difference of only 0.0001), confirming that regularization provided minimal benefit on this particular dataset.
-Why Decision Tree Won
+
+### Why Decision Tree Won
 • House prices in California are heavily influenced by non-linear geographic and income interactions — for example, a high-income block near the coast is worth exponentially more than a high-income inland block.
+
 • Linear models can only draw straight hyperplanes through the feature space and cannot capture these curved, threshold-based relationships.
+
 • The Decision Tree splits data at specific feature thresholds — for example, blocks where MedInc > 5.0 AND Latitude < 35.5 get routed to a completely different prediction branch from similar-income inland blocks.
-• This threshold-based splitting naturally mirrors how real estate pricing actually works in the market.## Models Overview
+
+• This threshold-based splitting naturally mirrors how real estate pricing actually works in the market.
+
+## Charts & Visualizations Overview
+
+### Chart 1 — Model Comparison (RMSE)
+• Side-by-side horizontal bar chart showing RMSE score for all three models simultaneously.
+
+• Decision Tree bar is visibly shorter than both linear model bars, making the performance winner immediately obvious at a glance.
+
+• Each bar labeled with its exact RMSE value for precise comparison.
+
+• Color coded: Blue for Linear Regression, Teal for Ridge Regression, Amber for Decision Tree.
+
+![Model Comparison](https://github.com/suriya2318/ML-Model-Comparison-Feature-Engineering/blob/main/Model%20Performance%20Comparison.png)
+
+### Chart 2 — Model Comparison (R² Score)
+• Side-by-side bar chart showing R² Score for all three models simultaneously.
+
+• Decision Tree bar is visibly taller, confirming it explains significantly more price variation than both linear models.
+
+• Paired with the RMSE chart in a single figure to give a complete two-metric performance overview in one visual.
+
+![Model Comparison](https://github.com/suriya2318/ML-Model-Comparison-Feature-Engineering/blob/main/Model%20Performance%20Comparison.png)
+
+### Chart 3 — Actual vs Predicted (Best Model)
+• Scatter plot comparing the Decision Tree's predictions against real house prices on the 4,128 test rows.
+
+• Red dashed diagonal line represents perfect prediction — dots closer to this line mean more accurate predictions.
+
+• R² = 0.7517 annotation displayed directly on the chart for immediate context.
+
+• Tighter clustering around the diagonal line compared to the linear model scatter confirms superior Decision Tree accuracy.
+
+![Actual vs Predicted](https://github.com/suriya2318/ML-Model-Comparison-Feature-Engineering/blob/main/Visual%20performance%20Validation.png)
+
+### Chart 4 — Residual Plot (Best Model)
+• Plots the difference between actual and predicted values against predicted values for the Decision Tree.
+
+• Red dashed horizontal line at zero — ideal residuals scatter randomly and symmetrically around this line.
+
+• Mild positive residuals visible at higher predicted price ranges, indicating slight under-prediction of expensive properties.
+
+• This pattern confirms that even the best model struggles with very high-end properties — a clear signal that ensemble methods like Random Forest are the logical next step.
+
+![Residual Plot](https://github.com/suriya2318/ML-Model-Comparison-Feature-Engineering/blob/main/Visual%20performance%20Validation.png)
+
+### Chart 5 — Feature Scaling Before vs After Comparison
+• Side-by-side view of raw feature values versus scaled feature values for the first row of data.
+
+• Clearly demonstrates how StandardScaler eliminates the massive numeric imbalance between features.
+
+• Visually explains why scaling is a non-negotiable preprocessing step for any distance-sensitive or gradient-based ML algorithm.
+
+## Models Overview
 
 ### Model 1: Linear Regression (Baseline)
 • Standard ordinary least squares regression — finds the best-fitting straight-line relationship between all 8 features and the target price.
