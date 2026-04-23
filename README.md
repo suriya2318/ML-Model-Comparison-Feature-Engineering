@@ -229,3 +229,7 @@ features.
 ## Final Conclusion
 This Feature Engineering, Model Optimization and Performance Comparison project successfully demonstrates how professional Machine Learning engineers approach model improvement in real-world projects. By applying StandardScaler for feature normalization, training three distinct regression algorithms (Linear Regression, Ridge Regression, and Decision Tree Regressor), and evaluating all models on identical unseen test data using RMSE, R², and MAE metrics, a fully objective and reproducible model selection process was achieved. The Decision Tree Regressor emerged as the best-performing model by capturing non-linear patterns in the California Housing data that linear models fundamentally cannot model. This project establishes the critical skills of preprocessing correctness, multi-model comparison, metric-based decision making, and professional model justification — all essential competencies for any production-level Machine Learning workflow. Future improvements include training Random Forest and Gradient Boosting models, applying cross-validation for more reliable performance estimates, and implementing hyperparameter tuning using GridSearchCV to further push model accuracy beyond the current benchmark.
 
+# Source Code : 
+- <a href= "https://github.com/suriya2318/ML-Model-Comparison-Feature-Engineering/blob/main/AI_ML_Task2_Model_Comparison.ipynb">  Feature Engineering, Model Optimization & Performance Comparison Source Code </a>
+
+
